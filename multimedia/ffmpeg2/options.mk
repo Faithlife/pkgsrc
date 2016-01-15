@@ -3,8 +3,8 @@
 # Global and legacy options
 
 PKG_OPTIONS_VAR=	PKG_OPTIONS.ffmpeg2
-PKG_SUPPORTED_OPTIONS=	ass faac fdk-aac lame libvpx opencore-amr theora \
-			vorbis x264 x265 xvid
+PKG_SUPPORTED_OPTIONS=	ass faac fdk-aac lame libvpx opencore-amr static \
+			theora vorbis x264 x265 xvid
 PKG_SUGGESTED_OPTIONS=	lame ass libvpx theora vorbis x264 xvid
 
 # Add VDPAU if it is available
@@ -137,4 +137,12 @@ CONFIGURE_ARGS+=	--enable-libvpx
 .include "../../multimedia/libvpx/buildlink3.mk"
 .else
 CONFIGURE_ARGS+=	--disable-libvpx
+.endif
+
+# static support
+.if !empty(PKG_OPTIONS:Mstatic)
+CONFIGURE_ARGS+=	--enable-static
+CONFIGURE_ARGS+=	--disable-shared
+.else
+CONFIGURE_ARGS+=	--enable-shared
 .endif

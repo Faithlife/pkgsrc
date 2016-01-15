@@ -20,7 +20,6 @@ CONFIGURE_ARGS+=	--cc=${CC:Q}
 CONFIGURE_ARGS+=	--disable-debug
 CONFIGURE_ARGS+=	--disable-optimizations
 CONFIGURE_ARGS+=	--disable-stripping
-CONFIGURE_ARGS+=	--disable-shared
 CONFIGURE_ARGS+=	--enable-pthreads
 CONFIGURE_ARGS+=	--enable-gpl
 CONFIGURE_ARGS+=	--mandir=${PREFIX}/${PKGMANDIR}
